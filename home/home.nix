@@ -19,6 +19,7 @@
     #jetbrains.goland
     #jetbrains.webstorm
     #jetbrains.jdk
+    libreoffice
     mpv
     obsidian
     #onlyoffice-desktopeditors
