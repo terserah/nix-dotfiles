@@ -13,10 +13,9 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/efi";
   boot.loader.systemd-boot.configurationLimit = 5;
 
-  # networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "catnux"; # Define your hostname.
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
@@ -37,11 +36,15 @@
   # };
 
   ## plasma
-  services = {
-    desktopManager.plasma6.enable = true;
-    displayManager.sddm.enable = true;
-    displayManager.sddm.wayland.enable = true;
-  };
+  #services = {
+  #  desktopManager.plasma6.enable = true;
+  #  displayManager.sddm.enable = true;
+  #  displayManager.sddm.wayland.enable = true;
+  #};
+
+  # As of 25.11
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -89,27 +92,27 @@
   zramSwap.enable = true;
 
   ## Battery
-  systemd.services.asus-battery-threshold = {
-    description = "Set ASUS battery charge threshold";
-    wantedBy = [ "multi-user.target" ];
-    after = [ "multi-user.target" ];
+  #systemd.services.asus-battery-threshold = {
+  #  description = "Set ASUS battery charge threshold";
+  #  wantedBy = [ "multi-user.target" ];
+  #  after = [ "multi-user.target" ];
 
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = "${pkgs.bash}/bin/bash -c 'echo 80 > /sys/class/power_supply/BAT0/charge_control_end_threshold'";
-    };
-  };
+   # serviceConfig = {
+   #   Type = "oneshot";
+   #   ExecStart = "${pkgs.bash}/bin/bash -c 'echo 80 > /sys/class/power_supply/BAT0/charge_control_end_threshold'";
+  #  };
+  #};
 
-  systemd.services.asus-battery-threshold-resume = {
-    description = "Reapply ASUS battery threshold after resume";
-    wantedBy = [ "sleep.target" ];
-    before = [ "sleep.target" ];
+  #systemd.services.asus-battery-threshold-resume = {
+  #  description = "Reapply ASUS battery threshold after resume";
+  #  wantedBy = [ "sleep.target" ];
+  #  before = [ "sleep.target" ];
 
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = "${pkgs.bash}/bin/bash -c 'echo 80 > /sys/class/power_supply/BAT0/charge_control_end_threshold'";
-    };
-  };
+  #  serviceConfig = {
+  #    Type = "oneshot";
+  #    ExecStart = "${pkgs.bash}/bin/bash -c 'echo 80 > /sys/class/power_supply/BAT0/charge_control_end_threshold'";
+  #  };
+  #};
 
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -132,7 +135,6 @@
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
-    kdePackages.sddm-kcm
     vim
     wget
   ];

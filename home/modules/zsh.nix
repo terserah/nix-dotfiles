@@ -3,7 +3,7 @@
 let
   MyAliases = {
     ll = "ls -l";
-    update = "sudo nixos-rebuild switch --flake /data/dotfiles#nixos";
+    update = "sudo nixos-rebuild switch --flake /data/dotfiles#catnux";
   };
 in
 

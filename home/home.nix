@@ -4,6 +4,7 @@
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   imports = [
+    ./modules/dconf.nix
     ./modules/zsh.nix
   ];
   home.username = "tabun";
@@ -15,19 +16,19 @@
     android-studio
     heroic
     jetbrains.datagrip
-    jetbrains.goland
-    jetbrains.webstorm
-    jetbrains.jdk
+    #jetbrains.goland
+    #jetbrains.webstorm
+    #jetbrains.jdk
     mpv
     obsidian
-    onlyoffice-desktopeditors
+    #onlyoffice-desktopeditors
     obs-studio
     vscode
   ];
 
   programs.git = {
     enable = true;
-    settings.user.email = "yurandarezky@atmaluhura.ac.id";
+    settings.user.email = "yurandarezky@atmaluhur.ac.id";
     settings.user.name = "terserah";
   };
 

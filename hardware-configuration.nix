@@ -13,52 +13,46 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/8d903cbb-310c-4897-919e-2eb051eadedd";
+    { device = "/dev/disk/by-uuid/6552e676-ea57-4c2b-a209-480f8533d09e";
       fsType = "btrfs";
-      options = [ "subvol=@" "compress=zstd" "noatime" ];
-    };
-
-  fileSystems."/efi" =
-    { device = "/dev/disk/by-uuid/847F-25F4";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" "umask=0077" ];
-    };
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/4ddb72e4-bef1-429b-aaff-4105509c5c13";
-      fsType = "ext4";
+      options = [ "subvol=@" "noatime" "compress=zstd" ];
     };
 
   fileSystems."/data" =
-    { device = "/dev/disk/by-uuid/8d903cbb-310c-4897-919e-2eb051eadedd";
+    { device = "/dev/disk/by-uuid/6552e676-ea57-4c2b-a209-480f8533d09e";
       fsType = "btrfs";
-      options = [ "subvol=@data" "compress=zstd" "noatime" ];
+      options = [ "subvol=@data" "noatime" "compress=zstd" ];
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/8d903cbb-310c-4897-919e-2eb051eadedd";
+    { device = "/dev/disk/by-uuid/6552e676-ea57-4c2b-a209-480f8533d09e";
       fsType = "btrfs";
-      options = [ "subvol=@home" "compress=zstd" "noatime" ];
+      options = [ "subvol=@home" "noatime" "compress=zstd" ];
     };
 
   fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/8d903cbb-310c-4897-919e-2eb051eadedd";
+    { device = "/dev/disk/by-uuid/6552e676-ea57-4c2b-a209-480f8533d09e";
       fsType = "btrfs";
-      options = [ "subvol=@nix" "compress=zstd" "noatime" ];
+      options = [ "subvol=@nix" "noatime" "compress=zstd" ];
     };
 
   fileSystems."/var/lib" =
-    { device = "/dev/disk/by-uuid/8d903cbb-310c-4897-919e-2eb051eadedd";
+    { device = "/dev/disk/by-uuid/6552e676-ea57-4c2b-a209-480f8533d09e";
       fsType = "btrfs";
-      options = [ "subvol=@lib" "compress=zstd" "noatime" ];
+      options = [ "subvol=@lib" "noatime" "compress=zstd" ];
     };
 
   fileSystems."/var/log" =
-    { device = "/dev/disk/by-uuid/8d903cbb-310c-4897-919e-2eb051eadedd";
+    { device = "/dev/disk/by-uuid/6552e676-ea57-4c2b-a209-480f8533d09e";
       fsType = "btrfs";
-      options = [ "subvol=@log" "compress=zstd" "noatime" ];
+      options = [ "subvol=@log" "noatime" "compress=zstd" ];
+    };
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/546D-E508";
+      fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
     };
 
   swapDevices = [ ];
