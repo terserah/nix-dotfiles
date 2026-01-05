@@ -14,7 +14,7 @@
   home.packages = with pkgs; [
     burpsuitepro.packages.${pkgs.system}.default    
     android-studio
-    heroic
+    # heroic
     jetbrains.datagrip
     jetbrains.goland
     jetbrains.webstorm
@@ -26,9 +26,5 @@
     vscode
   ];
 
-
-
-
-  # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

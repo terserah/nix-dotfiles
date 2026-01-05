@@ -9,4 +9,6 @@
     vim
     wget
   ];
+  # flatpak
+  services.flatpak.enable = true;
 }
