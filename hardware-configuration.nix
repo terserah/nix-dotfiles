@@ -13,52 +13,51 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/8d903cbb-310c-4897-919e-2eb051eadedd";
+    { device = "/dev/disk/by-uuid/226b3654-d0ad-4768-b3f7-65c3d0b00524";
       fsType = "btrfs";
       options = [ "subvol=@" "compress=zstd" "noatime" ];
     };
 
-  fileSystems."/efi" =
-    { device = "/dev/disk/by-uuid/847F-25F4";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" "umask=0077" ];
-    };
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/4ddb72e4-bef1-429b-aaff-4105509c5c13";
-      fsType = "ext4";
-    };
-
   fileSystems."/data" =
-    { device = "/dev/disk/by-uuid/8d903cbb-310c-4897-919e-2eb051eadedd";
+    { device = "/dev/disk/by-uuid/226b3654-d0ad-4768-b3f7-65c3d0b00524";
       fsType = "btrfs";
       options = [ "subvol=@data" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/8d903cbb-310c-4897-919e-2eb051eadedd";
+    { device = "/dev/disk/by-uuid/226b3654-d0ad-4768-b3f7-65c3d0b00524";
       fsType = "btrfs";
       options = [ "subvol=@home" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/8d903cbb-310c-4897-919e-2eb051eadedd";
+    { device = "/dev/disk/by-uuid/226b3654-d0ad-4768-b3f7-65c3d0b00524";
       fsType = "btrfs";
       options = [ "subvol=@nix" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/var/lib" =
-    { device = "/dev/disk/by-uuid/8d903cbb-310c-4897-919e-2eb051eadedd";
+    { device = "/dev/disk/by-uuid/226b3654-d0ad-4768-b3f7-65c3d0b00524";
       fsType = "btrfs";
       options = [ "subvol=@lib" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/var/log" =
-    { device = "/dev/disk/by-uuid/8d903cbb-310c-4897-919e-2eb051eadedd";
+    { device = "/dev/disk/by-uuid/226b3654-d0ad-4768-b3f7-65c3d0b00524";
       fsType = "btrfs";
       options = [ "subvol=@log" "compress=zstd" "noatime" ];
+    };
+
+  fileSystems."/efi" =
+    { device = "/dev/disk/by-uuid/DB7E-2D91";
+      fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" "umask=0077" ];
+    };
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/4983da08-5cd5-4a2b-a7e0-849d9dce7025";
+      fsType = "ext4";
     };
 
   swapDevices = [ ];
