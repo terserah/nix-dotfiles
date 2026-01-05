@@ -4,6 +4,7 @@
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   imports = [
+    ./modules/git.nix
     ./modules/zsh.nix
   ];
   home.username = "tabun";
@@ -25,11 +26,7 @@
     vscode
   ];
 
-  programs.git = {
-    enable = true;
-    settings.user.email = "yurandarezky@atmaluhura.ac.id";
-    settings.user.name = "terserah";
-  };
+
 
 
   # Let Home Manager install and manage itself.
