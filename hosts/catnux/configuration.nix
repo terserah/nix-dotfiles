@@ -6,7 +6,7 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
       ../../modules/asusbat.nix
       ../../modules/bluetooth.nix
@@ -17,7 +17,6 @@
       ../../modules/plasma.nix
       ../../modules/users.nix
       ../../modules/virtualisation.nix
-    
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -28,11 +27,8 @@
   networking.hostName = "catnux"; 
   networking.networkmanager.enable = true;
   time.timeZone = "Asia/Jakarta";
-
-  ## Zram
   zramSwap.enable = true;
-
-  system.stateVersion = "25.11"; # Did you read the comment?
+  system.stateVersion = "25.11";
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
 }
