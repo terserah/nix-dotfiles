@@ -19,7 +19,7 @@
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, burpsuitepro, ... }: {
     nixosConfigurations = {
       catnux = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        # system = "x86_64-linux";
         modules = [
           ./hosts/catnux/configuration.nix
 	        home-manager.nixosModules.home-manager
