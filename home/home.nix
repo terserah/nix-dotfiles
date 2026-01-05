@@ -14,7 +14,7 @@
   home.packages = with pkgs; [
     burpsuitepro.packages.${pkgs.system}.default    
     android-studio
-    # heroic
+    # heroic <-- use flatpak (fuck lah)
     jetbrains.datagrip
     jetbrains.goland
     jetbrains.webstorm
